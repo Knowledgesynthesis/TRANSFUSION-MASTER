@@ -2,8 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Droplet } from 'lucide-react'
+import { useState } from 'react'
 
 export function Components() {
+  const [activeTab, setActiveTab] = useState('overview')
+
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-center gap-4">
@@ -16,7 +19,7 @@ export function Components() {
         </div>
       </div>
 
-      <Tabs value="overview" onValueChange={() => {}}>
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="overview">Components</TabsTrigger>
           <TabsTrigger value="modifications">Modifications</TabsTrigger>

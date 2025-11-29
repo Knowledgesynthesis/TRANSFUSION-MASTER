@@ -2,8 +2,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { TestTube } from 'lucide-react'
+import { useState } from 'react'
 
 export function PreTransfusion() {
+  const [activeTab, setActiveTab] = useState('overview')
+
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-center gap-4">
@@ -16,7 +19,7 @@ export function PreTransfusion() {
         </div>
       </div>
 
-      <Tabs value="overview" onValueChange={() => {}}>
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="typescreen">Type & Screen</TabsTrigger>
